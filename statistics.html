@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+
+<head>
+  <title>勤務時數統計</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+  <link href="./data/bootstrap.css" rel="stylesheet">
+  <script src="./data/jquery-3.7.1.min.js"></script>
+  <script src="./data/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./data/bootstrap.css" />
+  <script type="module" src="./data/statistics.js"></script>
+</head>
+
+<body>
+  <div class="container p-3">
+    <div class="row mb-2">
+      <div class="col-9">
+        <h2 class="text-center text-primary">113年6月 全所統計</h2>
+      </div>
+      <div class="col-3">
+        <a id="changePage" href="./index.html" class="btn btn-outline-primary">切換</a>
+      </div>
+    </div>
+    <div class="col-12">
+      <p id="info" class="text-center"></p>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <select id="item-select" class="form-select " aria-label="Default select example">
+          <option selected>請選擇統計項目</option>
+          <option value="1">加班時數</option>
+          <option value="2">深夜巡邏時數</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <table class="table">
+          <tr class="table-active">
+            <th class="text-info">人員</th>
+            <th class="text-info">時數</th>
+            <th class="text-info">人員</th>
+            <th class="text-info">時數</th>
+          </tr>
+          <tr>
+            <th>謝育璋</th>
+            <td id="member-0">?</td>
+            <th>周祐徹</th>
+            <td id="member-1">?</td>
+          </tr>
+          <tr>
+            <th>張旭承</th>
+            <td id="member-2">?</td>
+            <th>張伊謦</th>
+            <td id="member-3">?</td>
+          </tr>
+
+          <tr>
+            <th>梁子千</th>
+            <td id="member-4">?</td>
+            <th>徐經凱</th>
+            <td id="member-5">?</td>
+          </tr>
+          <tr>
+            <th>陳怡帆</th>
+            <td id="member-6">?</td>
+            <th>蕭凱安</th>
+            <td id="member-7">?</td>
+          </tr>
+
+          <tr>
+            <th>劉元富</th>
+            <td id="member-8">?</td>
+            <th>江晟銨</th>
+            <td id="member-9">?</td>
+          </tr>
+          <tr>
+            <th>蔡智楷</th>
+            <td id="member-10">?</td>
+            <th>王暐傑</th>
+            <td id="member-11">?</td>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+            <th>江元豪</th>
+            <td id="member-12">?</td>
+            <th>侯秉呈</th>
+            <td id="member-13">?</td>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+            <th>陳項羿</th>
+            <td id="member-14">?</td>
+            <th>黃崇勝</th>
+            <td id="member-15">?</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

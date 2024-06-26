@@ -1,12 +1,17 @@
-import { allShift, sumShift } from "./object.js";
+import { allShift, getDayhift, info } from "./object.js";
 
+
+// 函式：取得超勤時數
 function getOvertime(shiftTime){
   let overtime = -8;
   Object.values(shiftTime).forEach((value)=>{
     overtime+=value;
   })
-  if (overtime <= 0){
-    return 0;
+  if (overtime == -8){
+    return '未上班';
+  }
+  else if (overtime <0 && overtime > -8){
+    return `${overtime+8}`
   }
   else{
     return overtime;
@@ -30,7 +35,6 @@ function getMoneyTime(oneDayShift){
     }
   })
   times = dayTime.concat(nightTime);
-  // console.log((times));
   let html ='';
   times.forEach((value,index)=>{
     if (index == 0){
@@ -40,6 +44,9 @@ function getMoneyTime(oneDayShift){
       html += `, ${value}`
     }
   })
+  if (times.length < 8 && times.length > 0 ){
+    html += '<span class="text-danger">（未滿8小時，請確認是否停休）</span>';
+  }
   if(html){
     return html;
   }
@@ -80,8 +87,7 @@ function getNight(oneDayShift){
 // 函式：主要顯示
 function showAll(day, name){
   $('#showDate').html(day);
-  let oneDayShift = sumShift(allShift[day],name); //單日勤務（清單）
-  // console.log(oneDayShift);
+  let oneDayShift = getDayhift(allShift[day],name); //單日勤務（清單）
   // 計算並顯示各班時數
   let shiftTime = {
     '值班': 0,  
@@ -122,8 +128,8 @@ function showAll(day, name){
 let dayNo = 0;
 let name;
 let days = Object.keys(allShift); //所有日期清單
-
-$('#search').click(()=>{
+$('#info').html(info);
+$('#member-select').on('change',()=>{
   name = $('#member-select option:selected').text();
   if (name == '請選擇人員'){
     alert('請選擇人員！')
@@ -133,8 +139,6 @@ $('#search').click(()=>{
   showAll(days[dayNo],name) 
 
 })
-
-
 $('#last').click(()=>{
   if (dayNo > 0 ){
     dayNo -= 1;
@@ -142,7 +146,6 @@ $('#last').click(()=>{
   console.log(days[dayNo])
   showAll(days[dayNo],name) 
 })
-
 $('#next').click(()=>{
   if (dayNo < days.length-1){
     dayNo += 1;

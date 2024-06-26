@@ -2,7 +2,7 @@
 <html data-bs-theme="dark">
 
 <head>
-  <title>勤務表</title>
+  <title>個人勤務時數</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +17,20 @@
 
 <body>
   <div class="container p-3">
+    <div class="row mb-2">
+      <div class="col-9">
+        <h2 class="text-center text-primary">113年6月 個人時數 </h2>
+      </div>
+      <div class="col-3">
+        <a id="changePage" href="./statistics.html" class="btn btn-outline-primary">切換</a>
+      </div>
+    </div>
+    <div class="col-12">
+      <p id="info" class="text-center"></p>
+    </div>
     <div class="row">
-      <div class="col-8">
-        <select id="member-select" class="form-select" aria-label="Default select example">
+      <div class="col-12">
+        <select id="member-select" class="form-select " aria-label="Default select example">
           <option selected>請選擇人員</option>
           <option value="1">謝育璋</option>
           <option value="2">周祐徹</option>
@@ -39,22 +50,12 @@
           <option value="16">黃崇勝</option>
         </select>
       </div>
-      <div class="col-4">
-        <button id="search" class="btn btn-primary">查詢</button>
-      </div>
-      <div class="col-6 d-flex my-3">
-        <h1 id="name" class="fw-bolder m-auto">XXX</h1>
-      </div>
-      <div class="col-6 d-flex my-3">
-        <h1 id="showDate" class="fw-bolder m-auto">?月?日</h1>
-      </div>
     </div>
     <div class="row mt-3">
       <div class="col-12">
-        <h4 class="fw-bolder text-primary">勤務時數</h4>
         <table class="table">
-          <tr>
-            <th class="text-info">勤務項目</th>
+          <tr class="table-active">
+            <th class="text-info ">勤務項目</th>
             <th class="text-info">服勤時數</th>
           </tr>
           <tr>
@@ -90,37 +91,43 @@
             <td id="shift-8" class="text-warning">?</td>
           </tr>
           <tr>
-            <th class="text-warning" colspan="2">
-              上班時段
-              <span class="ms-5 text-secondary"><small>「8」代表8-9，以此類推</small></span> 
+            <th class="table-active" colspan="2">
+              <div class="d-flex">
+                <span class="text-info">上班時段</span>
+                <span class="ms-auto text-secondary"><small>「8」代表8-9，以此類推</small></span> 
+              </div>
             </th>
           </tr>
           <tr>
             <th colspan="2" id="shift-9">？</th>
           </tr>
           <tr>
-            <th colspan="2" class="text-warning">
-              深夜巡邏時段            
-              <span class="ms-3 text-secondary"><small>其他勤務請手動確認</small></span>
+            <th colspan="2" class="table-active">
+              <div class="d-flex">
+                <span class="text-info">深夜巡邏時段</span>
+                <span class="ms-3 text-secondary"><small>其他勤務請手動確認</small></span>
+              </div>
             </th>
-
           </tr>
           <tr>
             <th colspan="2" id="shift-10">？</th>
           </tr>
         </table>
-        <p class="">※註：統計至6/26，已包含紙本加改班</p>
+        
       </div>
 
     </div>
 
   </div>
   <div class="fixed-bottom row mb-3">
-    <div class="col-6 d-flex">
-      <button id="last" class="btn btn-primary w-75 m-auto">前一天</button>
+    <div class="col-4 d-flex">
+      <button id="last" class="btn btn-primary w-100 m-auto">前一天</button>
     </div>
-    <div class="col-6 d-flex">
-      <button id="next" class="btn btn-primary w-75 m-auto">後一天</button>
+    <div class="col-4 d-flex my-3">
+      <h1 id="showDate" class="fw-bolder m-auto">?月?日</h1>
+    </div>
+    <div class="col-4 d-flex">
+      <button id="next" class="btn btn-primary w-100 m-auto">後一天</button>
     </div>
     
     
