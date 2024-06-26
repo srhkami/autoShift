@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+
+<head>
+  <title>勤務表</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+  <link href="./data/bootstrap.css" rel="stylesheet">
+  <script src="./data/jquery-3.7.1.min.js"></script>
+  <script src="./data/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./data/bootstrap.css" />
+  <script type="module" src="./data/main.js"></script>
+</head>
+
+<body>
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-8">
+        <select id="member-select" class="form-select" aria-label="Default select example">
+          <option selected>請選擇人員</option>
+          <option value="1">謝育璋</option>
+          <option value="2">周祐徹</option>
+          <option value="3">張旭承</option>
+          <option value="4">張伊謦</option>
+          <option value="5">梁子千</option>
+          <option value="6">徐經凱</option>
+          <option value="7">陳怡帆</option>
+          <option value="8">蕭凱安</option>
+          <option value="9">劉元富</option>
+          <option value="10">江晟銨</option>
+          <option value="11">蔡智楷</option>
+          <option value="12">王暐傑</option>
+          <option value="13">江元豪</option>
+          <option value="14">侯秉呈</option>
+          <option value="15">陳項羿</option>
+          <option value="16">黃崇勝</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <button id="search" class="btn btn-primary">查詢</button>
+      </div>
+      <div class="col-6 d-flex my-3">
+        <h1 id="name" class="fw-bolder m-auto">XXX</h1>
+      </div>
+      <div class="col-6 d-flex my-3">
+        <h1 id="showDate" class="fw-bolder m-auto">?月?日</h1>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <h4 class="fw-bolder text-primary">勤務時數</h4>
+        <table class="table">
+          <tr>
+            <th class="text-info">勤務項目</th>
+            <th class="text-info">服勤時數</th>
+          </tr>
+          <tr>
+            <th>值班</th>
+            <td id="shift-1">?</td>
+          </tr>
+          <tr>
+            <th>勤區查察</th>
+            <td id="shift-2">?</td>
+          </tr>
+          <tr>
+            <th>巡邏/守望</th>
+            <td id="shift-3">?</td>
+          </tr>
+          <tr>
+            <th>擴大臨檢</th>
+            <td id="shift-4">?</td>
+          </tr>
+          <tr>
+            <th>備勤</th>
+            <td id="shift-5">?</td>
+          </tr>
+          <tr>
+            <th>待命服勤</th>
+            <td id="shift-6">?</td>
+          </tr>
+          <tr>
+            <th>其他</th>
+            <td id="shift-7">?</td>
+          </tr>
+          <tr>
+            <th class="text-warning">超勤時數</th>
+            <td id="shift-8" class="text-warning">?</td>
+          </tr>
+          <tr>
+            <th class="text-warning" colspan="2">
+              上班時段
+              <span class="ms-5 text-secondary"><small>「8」代表8-9，以此類推</small></span> 
+            </th>
+          </tr>
+          <tr>
+            <th colspan="2" id="shift-9">？</th>
+          </tr>
+          <tr>
+            <th colspan="2" class="text-warning">
+              深夜巡邏時段            
+              <span class="ms-3 text-secondary"><small>其他勤務請手動確認</small></span>
+            </th>
+
+          </tr>
+          <tr>
+            <th colspan="2" id="shift-10">？</th>
+          </tr>
+        </table>
+        <p class="">※註：統計至6/26，已包含紙本加改班</p>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="fixed-bottom row mb-3">
+    <div class="col-6 d-flex">
+      <button id="last" class="btn btn-primary w-75 m-auto">前一天</button>
+    </div>
+    <div class="col-6 d-flex">
+      <button id="next" class="btn btn-primary w-75 m-auto">後一天</button>
+    </div>
+    
+    
+  </div>
+</body>
+
+</html>
