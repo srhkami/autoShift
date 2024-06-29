@@ -1,24 +1,19 @@
-import { allShift, getDayhift, info } from "./object.js";
+import { allShift, sumShift } from "./object.js";
 
-
-// 函式：取得超勤時數
 function getOvertime(shiftTime){
   let overtime = -8;
   Object.values(shiftTime).forEach((value)=>{
     overtime+=value;
   })
-  if (overtime == -8){
-    return '未上班';
-  }
-  else if (overtime <0 && overtime > -8){
-    return `${overtime+8}`
+  if (overtime <= 0){
+    return 0;
   }
   else{
     return overtime;
   }
 }
 
-// 函式：取得上班時段
+// 函式：取得報支時數
 function getMoneyTime(oneDayShift){
   let times = oneDayShift.map(value => {return value.time})
   times = times.sort( (a,b) => {
@@ -31,6 +26,7 @@ function getMoneyTime(oneDayShift){
   })
   let nightTime = times.filter(value => {
     if(value < 8){
+      console.log(value);
       return value==0?'0':value;
     }
   })
@@ -44,9 +40,6 @@ function getMoneyTime(oneDayShift){
       html += `, ${value}`
     }
   })
-  if (times.length < 8 && times.length > 0 ){
-    html += '<span class="text-danger">（未滿8小時，請確認是否停休）</span>';
-  }
   if(html){
     return html;
   }
@@ -56,39 +49,21 @@ function getMoneyTime(oneDayShift){
   
 }
 
-// 函式：取得深夜巡邏時段
+// 函式：取得深夜津貼
 function getNight(oneDayShift){
   let nightShift = oneDayShift.filter(value=>{
-    if(value.time < 6 && value.shift == '巡邏'){
+    if(value.time < 6){
       return value;
     }
   })
-  let times = nightShift.map(value => {return value.time})
-  times = times.sort( (a,b) => {
-    return a-b
-  });
-  let html ='';
-  times.forEach((value,index)=>{
-    if (index == 0){
-      html += value;
-    }
-    else{
-      html += `, ${value}`
-    }
-  })
-  if(html){
-    return html;
-  }
-  else{
-    return '無';
-  }
+  // console.log(nightShift);
 }
 
 // 函式：主要顯示
 function showAll(day, name){
-  $('#showDate').html(`${day} 日`);
-  let oneDayShift = getDayhift(allShift[day],name); //單日勤務（清單）
-  let tomorrowShift = getDayhift(allShift[day-1],name)
+  $('#showDate').html(day);
+  let oneDayShift = sumShift(allShift[day],name); //單日勤務（清單）
+  console.log(oneDayShift);
   // 計算並顯示各班時數
   let shiftTime = {
     '值班': 0,  
@@ -119,18 +94,17 @@ function showAll(day, name){
   // 顯示報支時段
   $('#shift-9').html(getMoneyTime(oneDayShift));
   // 顯示深夜津貼
-  $('#shift-10').html(getNight(tomorrowShift));
-  
+  getNight(oneDayShift);
 }
 
 
 
 // 主程式
-let dayNo = 1;
+let dayNo = 0;
 let name;
 let days = Object.keys(allShift); //所有日期清單
-$('#info').html(info);
-$('#member-select').on('change',()=>{
+
+$('#search').click(()=>{
   name = $('#member-select option:selected').text();
   if (name == '請選擇人員'){
     alert('請選擇人員！')
@@ -138,16 +112,22 @@ $('#member-select').on('change',()=>{
   }
   $('#name').html(name);
   showAll(days[dayNo],name) 
+
 })
+
+
 $('#last').click(()=>{
-  if (dayNo > 1 ){
+  if (dayNo > 0 ){
     dayNo -= 1;
   }
+  console.log(days[dayNo])
   showAll(days[dayNo],name) 
 })
+
 $('#next').click(()=>{
   if (dayNo < days.length-1){
     dayNo += 1;
   }
+  console.log(days[dayNo])
   showAll(days[dayNo],name) 
 })
