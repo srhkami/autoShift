@@ -2,7 +2,7 @@
 <html data-bs-theme="dark">
 
 <head>
-  <title>勤務時數統計</title>
+  <title>半年時數統計</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,28 +12,22 @@
   <script src="./data/jquery-3.7.1.min.js"></script>
   <script src="./data/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="./data/bootstrap.css" />
-  <script type="module" src="./data/statistics.js"></script>
+  <script type="module" src="./data/statistics2.js"></script>
 </head>
 
 <body>
   <div class="container p-3">
     <div class="row mb-2">
-      <div class="col-9">
-        <h2 class="text-center text-primary fw-bolder">113年6月 全所統計</h2>
+      <div class="col-12">
+        <h2 class="text-center text-primary fw-bolder">113年上半年時數統計</h2>
       </div>
-      <div class="col-3">
-        <a id="changePage" href="./index.html" class="btn btn-outline-primary">切換</a>
-      </div>
-    </div>
-    <div class="col-12">
-      <p id="info" class="text-center"></p>
     </div>
     <div class="row">
       <div class="col-12">
         <select id="item-select" class="form-select " aria-label="Default select example">
           <option selected>請選擇統計項目</option>
-          <option value="1">加班時數</option>
-          <option value="2">深夜巡邏時數</option>
+          <option value="1">防制危駕</option>
+          <option value="2">交通崗</option>
         </select>
       </div>
     </div>
@@ -49,58 +43,89 @@
           <tr>
             <th>謝育璋</th>
             <td id="member-0">?</td>
-            <th>周祐徹</th>
-            <td id="member-1">?</td>
-          </tr>
-          <tr>
-            <th>張旭承</th>
-            <td id="member-2">?</td>
-            <th>張伊謦</th>
-            <td id="member-3">?</td>
-          </tr>
-          <tr>
-            <th>梁子千</th>
-            <td id="member-4">?</td>
-            <th>徐經凱</th>
-            <td id="member-5">?</td>
-          </tr>
-          <tr>
-            <th>陳怡帆</th>
-            <td id="member-6">?</td>
-            <th>蕭凱安</th>
-            <td id="member-7">?</td>
-          </tr>
-          <tr>
-            <th>劉元富</th>
-            <td id="member-8">?</td>
-            <th>江晟銨</th>
-            <td id="member-9">?</td>
-          </tr>
-          <tr>
-            <th>蔡智楷</th>
-            <td id="member-10">?</td>
-            <th>王暐傑</th>
-            <td id="member-11">?</td>
-          </tr>
-          <tr>
-          </tr>
-          <tr>
             <th>江元豪</th>
             <td id="member-12">?</td>
+          </tr>
+          <tr>
+            <th>周祐徹</th>
+            <td id="member-1">?</td>
             <th>侯秉呈</th>
             <td id="member-13">?</td>
           </tr>
           <tr>
-          </tr>
-          <tr>
+            <th>張旭承</th>
+            <td id="member-2">?</td>
             <th>陳項羿</th>
             <td id="member-14">?</td>
+          </tr>
+          <tr>
+            <th>張伊謦</th>
+            <td id="member-3">?</td>
             <th>黃崇勝</th>
             <td id="member-15">?</td>
+          </tr>
+          <tr>
+            <th>梁子千</th>
+            <td id="member-4">?</td>
+            <th>鄭明岳</th>
+            <td id="member-16">?</td>
+          </tr>
+          <tr>
+            <th>徐經凱</th>
+            <td id="member-5">?</td>
+            <th>鄭景文</th>
+            <td id="member-17">?</td>
+          <tr>
+            <th>陳怡帆</th>
+            <td id="member-6">?</td>
+            <th>林彥良</th>
+            <td id="member-18">?</td>
+          </tr>
+          <tr>
+            <th>蕭凱安</th>
+            <td id="member-7">?</td>
+            <th>許騰元</th>
+            <td id="member-19">?</td>
+          </tr>
+          <tr>
+            <th>劉元富</th>
+            <td id="member-8">?</td>
+            <th>黃騰億</th>
+            <td id="member-20">?</td>
+          </tr>
+          <tr>
+            <th>江晟銨</th>
+            <td id="member-9">?</td>
+            <th>賴俊成</th>
+            <td id="member-21">?</td>
+          </tr>
+          <tr>
+            <th>蔡智楷</th>
+            <td id="member-10">?</td>
+            <th>駱佳輝</th>
+            <td id="member-22">?</td>
+          </tr>
+          <tr>
+            <th>王暐傑</th>
+            <td id="member-11">?</td>
+            <th>無</th>
+            <td id="member-23">?</td>
           </tr>
         </table>
       </div>
     </div>
+  </div>
+  <div class="fixed-bottom row mb-1">
+    <div class="col-4 d-flex">
+      <button id="last" class="btn btn-primary w-100 m-auto">前一天</button>
+    </div>
+    <div class="col-4 d-flex my-3">
+      <h1 id="showDate" class="fw-bolder m-auto">? 日</h1>
+    </div>
+    <div class="col-4 d-flex">
+      <button id="next" class="btn btn-primary w-100 m-auto">後一天</button>
+    </div>
+    
   </div>
 </body>
 
