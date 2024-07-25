@@ -29,9 +29,6 @@ function getNight(){
       list.forEach(value=>{
         if(value.name == member && value.time < 6 && value.shift == '巡邏'){
           dayNightTime += 1;
-          if(value.name == '蔡智楷'){
-            console.log(value);
-          }
         }
       })
       monthNightTime += dayNightTime;
